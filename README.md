@@ -1,0 +1,1 @@
+Ola Usuário, esse plugin é gratuito
