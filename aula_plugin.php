@@ -34,7 +34,7 @@
         $wpdb->get_results('INSERT INTO wp_posts (post_author, post_content, post_title, post_status, comment_status, ping_status, post_type, comment_count) VALUES (1, "teste Micael", "teste Micael", "publish", "open", "open", "modulo", 0);');
     }
     public function deactivate(){
-        
+        flush_rewrite_rules();
 
     }
     public function create_custom_post_type_modulo(){
