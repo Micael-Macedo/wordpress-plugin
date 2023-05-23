@@ -21,20 +21,20 @@
     public function __construct(){
         add_action('init', Array($this, 'create_custom_post_type_modulo'));
     }
-    public function install(){
-
-    }
     public function uninstall(){
-
+        flush_rewrite_rules();
+        global $wpdb;
+        $wpdb->get_results('DELETE FROM wp_posts WHERE post_type="post";');
     }
     public function activate(){
         $this->create_custom_post_type_modulo();
 
         flush_rewrite_rules();
-
-        global $wpdb->get_results('INSERT INTO wp_posts (post_author, post_content, post_title, post_status, comment_status, ping_status, post_type, comment_count) VALUES (1, "teste Micael", "teste Micael", "publish", "open", "open", "modulo", 0);');
+        global $wpdb;
+        $wpdb->get_results('INSERT INTO wp_posts (post_author, post_content, post_title, post_status, comment_status, ping_status, post_type, comment_count) VALUES (1, "teste Micael", "teste Micael", "publish", "open", "open", "modulo", 0);');
     }
     public function deactivate(){
+        
 
     }
     public function create_custom_post_type_modulo(){
