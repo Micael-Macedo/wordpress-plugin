@@ -16,7 +16,14 @@
  if( ! defined('ABSPATH')){
     die('Invalid request');
  }
+$frase = "Hello World";
+ add_filter('the_content', 'insert_phrase_in_the_end');
 
+ function insert_phrase_in_the_end($content){
+    global $frase;
+    $content = $content . $frase;
+    return $content;
+ }
  class AulaPlugin{
     public function __construct(){
         add_action('init', Array($this, 'create_custom_post_type_modulo'));
